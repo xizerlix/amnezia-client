@@ -655,7 +655,17 @@ Already installed containers were found on the server. All installed containers 
         <translation>انتخاب برنامه</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Components/InstalledAppsDrawer.qml" line="130"/>
+        <location filename="../ui/qml/Components/InstalledAppsDrawer.qml" line="55"/>
+        <source>Show system apps</source>
+        <translation>نمایش برنامه‌های سیستمی</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/InstalledAppsDrawer.qml" line="56"/>
+        <source>Services without a launcher icon, such as Gemini</source>
+        <translation>سرویس‌های بدون آیکون لانچر، مانند Gemini</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/InstalledAppsDrawer.qml" line="164"/>
         <source>application name</source>
         <translation>نام برنامه</translation>
     </message>

@@ -656,12 +656,22 @@ Already installed containers were found on the server. All installed containers 
         <translation>Выберите приложение</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Components/InstalledAppsDrawer.qml" line="130"/>
+        <location filename="../ui/qml/Components/InstalledAppsDrawer.qml" line="56"/>
+        <source>Show system apps</source>
+        <translation>Показать системные</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/InstalledAppsDrawer.qml" line="57"/>
+        <source>Services without a launcher icon, such as Gemini</source>
+        <translation>Сервисы без иконки на рабочем столе, например Gemini</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/InstalledAppsDrawer.qml" line="166"/>
         <source>application name</source>
         <translation>название приложения</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Components/InstalledAppsDrawer.qml" line="143"/>
+        <location filename="../ui/qml/Components/InstalledAppsDrawer.qml" line="179"/>
         <source>Add selected</source>
         <translation>Добавить выбранные</translation>
     </message>

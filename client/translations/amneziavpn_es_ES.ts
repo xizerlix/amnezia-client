@@ -655,7 +655,17 @@ Se han encontrado contenedores ya instalados en el servidor. Todos ellos se han 
         <translation>Seleccionar aplicación</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Components/InstalledAppsDrawer.qml" line="130"/>
+        <location filename="../ui/qml/Components/InstalledAppsDrawer.qml" line="55"/>
+        <source>Show system apps</source>
+        <translation>Mostrar aplicaciones del sistema</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/InstalledAppsDrawer.qml" line="56"/>
+        <source>Services without a launcher icon, such as Gemini</source>
+        <translation>Servicios sin icono en el escritorio, como Gemini</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/InstalledAppsDrawer.qml" line="164"/>
         <source>application name</source>
         <translation>Nombre de la aplicación</translation>
     </message>

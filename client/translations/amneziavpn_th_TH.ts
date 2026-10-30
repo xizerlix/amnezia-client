@@ -655,7 +655,17 @@ Already installed containers were found on the server. All installed containers 
         <translation>เลือกแอปพลิเคชัน</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Components/InstalledAppsDrawer.qml" line="130"/>
+        <location filename="../ui/qml/Components/InstalledAppsDrawer.qml" line="55"/>
+        <source>Show system apps</source>
+        <translation>แสดงแอประบบ</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/InstalledAppsDrawer.qml" line="56"/>
+        <source>Services without a launcher icon, such as Gemini</source>
+        <translation>บริการที่ไม่มีไอคอนบนหน้าจอหลัก เช่น Gemini</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/InstalledAppsDrawer.qml" line="164"/>
         <source>application name</source>
         <translation>ชื่อแอปพลิเคชัน</translation>
     </message>

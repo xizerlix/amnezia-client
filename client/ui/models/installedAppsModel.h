@@ -13,7 +13,9 @@ public:
         AppNameRole = Qt::UserRole + 1,
         PackageNameRole,
         AppIconRole,
-        IsAppSelectedRole
+        IsAppSelectedRole,
+        IsSystemRole,
+        IsLaunchableRole
     };
 
     explicit InstalledAppsModel(QObject *parent = nullptr);

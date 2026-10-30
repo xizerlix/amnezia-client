@@ -656,7 +656,17 @@ Already installed containers were found on the server. All installed containers 
         <translation>اختر تطبيق</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Components/InstalledAppsDrawer.qml" line="130"/>
+        <location filename="../ui/qml/Components/InstalledAppsDrawer.qml" line="55"/>
+        <source>Show system apps</source>
+        <translation>إظهار تطبيقات النظام</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/InstalledAppsDrawer.qml" line="56"/>
+        <source>Services without a launcher icon, such as Gemini</source>
+        <translation>الخدمات بدون أيقونة على الشاشة الرئيسية، مثل Gemini</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/InstalledAppsDrawer.qml" line="164"/>
         <source>application name</source>
         <translation>اسم التطبيق</translation>
     </message>

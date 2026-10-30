@@ -655,7 +655,17 @@ Already installed containers were found on the server. All installed containers 
         <translation>애플리케이션 선택</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Components/InstalledAppsDrawer.qml" line="130"/>
+        <location filename="../ui/qml/Components/InstalledAppsDrawer.qml" line="55"/>
+        <source>Show system apps</source>
+        <translation>시스템 앱 표시</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/InstalledAppsDrawer.qml" line="56"/>
+        <source>Services without a launcher icon, such as Gemini</source>
+        <translation>런처 아이콘이 없는 서비스(예: Gemini)</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/InstalledAppsDrawer.qml" line="164"/>
         <source>application name</source>
         <translation>애플리케이션 이름</translation>
     </message>

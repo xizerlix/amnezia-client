@@ -42,28 +42,63 @@ SheetType {
             headerText: qsTr("Choose application")
         }
 
-        ListViewType {
-            id: listView
+        SwitchRowType {
+            id: showSystemAppsSwitch
 
             anchors.top: header.bottom
             anchors.left: parent.left
             anchors.right: parent.right
+            anchors.topMargin: 8
+            anchors.leftMargin: 16
+            anchors.rightMargin: 16
+            height: implicitHeight
+
+            text: qsTr("Show system apps")
+            descriptionText: qsTr("Services without a launcher icon, such as Gemini")
+        }
+
+        ListViewType {
+            id: listView
+
+            anchors.top: showSystemAppsSwitch.bottom
+            anchors.left: parent.left
+            anchors.right: parent.right
             anchors.bottom: searchField.top
-            anchors.topMargin: 32
+            anchors.topMargin: 16
             anchors.bottomMargin: 8
 
             leftMargin: 16
             rightMargin: 16
-            topMargin: 16
+            topMargin: 8
 
             model: SortFilterProxyModel {
                 id: proxyInstalledAppsModel
                 sourceModel: installedAppsModel
-                filters: RegExpFilter {
-                    roleName: "appName"
-                    pattern: ".*" + searchField.text + ".*"
-                    caseSensitivity: Qt.CaseInsensitive
-                }
+                filters: [
+                    AnyOf {
+                        enabled: !showSystemAppsSwitch.checked
+                        ValueFilter {
+                            roleName: "isLaunchable"
+                            value: true
+                        }
+                        ValueFilter {
+                            roleName: "isSystem"
+                            value: false
+                        }
+                    },
+                    AnyOf {
+                        RegExpFilter {
+                            roleName: "appName"
+                            pattern: ".*" + searchField.text + ".*"
+                            caseSensitivity: Qt.CaseInsensitive
+                        }
+                        RegExpFilter {
+                            roleName: "packageName"
+                            pattern: ".*" + searchField.text + ".*"
+                            caseSensitivity: Qt.CaseInsensitive
+                        }
+                    }
+                ]
             }
 
             delegate: Item {
@@ -85,6 +120,7 @@ SheetType {
                         spacing: 20
 
                         text: appName
+                        descriptionText: packageName
                         checked: isAppSelected
                         onToggled: {
                             installedAppsModel.selectedStateChanged(proxyInstalledAppsModel.mapToSource(index), checked)

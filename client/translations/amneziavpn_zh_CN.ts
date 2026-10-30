@@ -655,12 +655,22 @@ Already installed containers were found on the server. All installed containers 
         <translation>选择应用</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Components/InstalledAppsDrawer.qml" line="130"/>
+        <location filename="../ui/qml/Components/InstalledAppsDrawer.qml" line="55"/>
+        <source>Show system apps</source>
+        <translation>显示系统应用</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/InstalledAppsDrawer.qml" line="56"/>
+        <source>Services without a launcher icon, such as Gemini</source>
+        <translation>没有桌面图标的服务，例如 Gemini</translation>
+    </message>
+    <message>
+        <location filename="../ui/qml/Components/InstalledAppsDrawer.qml" line="164"/>
         <source>application name</source>
         <translation>应用名称</translation>
     </message>
     <message>
-        <location filename="../ui/qml/Components/InstalledAppsDrawer.qml" line="143"/>
+        <location filename="../ui/qml/Components/InstalledAppsDrawer.qml" line="177"/>
         <source>Add selected</source>
         <translation>添加所选</translation>
     </message>

@@ -41,6 +41,12 @@ QVariant InstalledAppsModel::data(const QModelIndex &index, int role) const
     case IsAppSelectedRole: {
         return m_selectedAppIndexes.contains(index.row());
     }
+    case IsSystemRole: {
+        return m_installedApps.at(index.row()).toObject().value("system").toBool();
+    }
+    case IsLaunchableRole: {
+        return m_installedApps.at(index.row()).toObject().value("launchable").toBool();
+    }
     }
 
     return QVariant();
@@ -98,5 +104,7 @@ QHash<int, QByteArray> InstalledAppsModel::roleNames() const
     roles[AppIconRole] = "appIcon";
     roles[PackageNameRole] = "packageName";
     roles[IsAppSelectedRole] = "isAppSelected";
+    roles[IsSystemRole] = "isSystem";
+    roles[IsLaunchableRole] = "isLaunchable";
     return roles;
 }

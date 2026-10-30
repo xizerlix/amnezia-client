@@ -1,6 +1,5 @@
 import android.Manifest.permission.INTERNET
 import android.content.pm.ApplicationInfo
-import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import android.content.pm.PackageManager.NameNotFoundException
 import android.graphics.Bitmap
@@ -15,8 +14,10 @@ private const val TAG = "AppListProvider"
 object AppListProvider {
     fun getAppList(pm: PackageManager, selfPackageName: String): String {
         val jsonArray = JSONArray()
-        pm.getPackagesHoldingPermissions(arrayOf(INTERNET), 0)
+        pm.getInstalledApplications(PackageManager.GET_META_DATA)
+            .asSequence()
             .filter { it.packageName != selfPackageName }
+            .filter { pm.checkPermission(INTERNET, it.packageName) == PackageManager.PERMISSION_GRANTED }
             .map { App(it, pm) }
             .sortedWith(App::compareTo)
             .map(App::toJson)
@@ -38,15 +39,16 @@ object AppListProvider {
     }
 }
 
-private class App(pi: PackageInfo, pm: PackageManager, ai: ApplicationInfo? = pi.applicationInfo) : Comparable<App> {
+private class App(ai: ApplicationInfo, pm: PackageManager) : Comparable<App> {
     val name: String?
-    val packageName: String = pi.packageName
-    val icon: Boolean = (ai?.icon ?: 0) != 0
+    val packageName: String = ai.packageName
+    val icon: Boolean = ai.icon != 0
     val isLaunchable: Boolean = pm.getLaunchIntentForPackage(packageName) != null
+    val isSystem: Boolean = (ai.flags and ApplicationInfo.FLAG_SYSTEM) != 0
 
     init {
-        val name = ai?.loadLabel(pm)?.toString()
-        this.name = name?.takeIf { it != packageName }
+        val name = ai.loadLabel(pm).toString()
+        this.name = name.takeIf { it != packageName }
     }
 
     override fun compareTo(other: App): Int {
@@ -68,6 +70,7 @@ private class App(pi: PackageInfo, pm: PackageManager, ai: ApplicationInfo? = pi
         jsonObject.put("name", name)
         jsonObject.put("icon", icon)
         jsonObject.put("launchable", isLaunchable)
+        jsonObject.put("system", isSystem)
         return jsonObject
     }
 }
